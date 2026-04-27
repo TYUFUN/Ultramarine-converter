@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="shortcut icon" href="static/img/fav.ico" type="image/x-icon">
+    <meta name="description" content="Ultramarine Converter — free online image converter. Convert PNG, JPG, WebP, BMP, GIF, ICO, TIFF to any format easily.">
+    <meta name="keywords" content="image converter, photo converter, png to jpg, webp converter, online converter, free converter, jpg to png, png to ico, jpg to ico, png to pdf">
+    <meta name="author" content="TYUFUN">
+    <meta property="og:title" content="Ultramarine Converter">
+    <meta property="og:description" content="Free online image converter. Convert PNG, JPG, WebP, BMP, GIF, ICO, TIFF easily.">
+    <!-- <meta property="og:image" content="https://твойдомен.com/static/img/preview.png"> -->
+    <!-- <meta property="og:url" content="https://твойдомен.com"> -->
+    <title>Ultramarine Converter</title>
+</head>
+<body>
+    <div id="cont">
+    <h1>Ultramarine Converter</h1>
+    <label id="fix">▹Which photo extensions you can upload?</span></label><br>
+    <div id="types"><p>You can upload photos in those extensions:</p>
+    <p>- PNG</p>
+    <p>- JPG or JPEG</p>
+    <p>- BMP
+    <p>- WebP</p>
+    <p>- ICO</p>
+    <p>- TIFF</p>
+    <p>- GIF (only first frame)</p></div>
+    <label>Convert to: </label>
+    <select id="to">
+        <option value="png">PNG</option>
+        <option value="webp">WEBP</option>
+        <option value="jpeg">JPG</option>
+        <option value="ico">ICO</option>
+        <option value="pdf">PDF</option>
+        <option value="bmp">BMP</option>
+    </select>
+    </div>
+    <br>
+    <div id="first">
+        <label  for="ttt" id="sel">Select file</label><br>
+        <img src="static/img/image.png" id="your_f"><br>
+        <input type="file" name="file" id="ttt">
+        <button id="convert">Convert</button>
+    </div>
+    <div id="second"><p>Converted file: </p>
+    <img src="static/img/photo_2026-04-23_17-17-22.jpg" id="our_f"><br>
+    <button id="dwn">Download file</button>
+    </div>
+<div id="notes">
+    <h3>Notes:</h3>
+    <div class="note">⚠️ If your PNG contains transparency (alpha channel) it won't convert to JPG/BMP/PDF</div>
+    <div class="note">🎞️ Converting GIF to any format will give you only the first frame</div>
+    <div class="note">📄 You can convert to PDF but can't convert from PDF</div>
+    <div class="note">ℹ️ JPG = JPEG (same extension)</div>
+</div>
+<footer>
+    <label>&copy;TYUFUN 2026</label>
+    <a href="https://github.com/TYUFUN"><img id="imgfix" src="static/img/2111432.png"></a></footer>
+<script src="static/app.js"></script>
+</body>
+</html>            
