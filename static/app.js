@@ -22,26 +22,22 @@ convert.addEventListener('click', async () => {
     to = document.getElementById("to").value;
     const user_file_send = file_c.files[0];
     const formData = new FormData();
+    convert.innerHTML = "Loading...";
     formData.append("photo", user_file_send);
     formData.append("to", to);
     const response = await fetch("/convert",{ method: "post", body: formData});
+    convert.innerHTML = "Convert";
     if (!response.ok ) {
         const data = await response.json();
-        if (response.status == 413){
-           bg(data.detail)}
-        else if (response.status == 415){
-            bg(data.detail)}
-        else if (response.status == 400){
+        if (response.status == 400){
             bg("Error 400. probably wrong photo uploaded")}
         else if (response.status == 422){
             bg("File not uploaded")
         }
         else{
-            globaler.innerHTML = data.detail;
-            globaler.style.display = 'block';
-            await sleep(5000);
-            globaler.style.display = "none";
+            bg(data.detail)
         }
+        document.getElementById("er413").scrollIntoView({ behavior: "smooth" });
         return;
 };
     const blob = await response.blob(); 

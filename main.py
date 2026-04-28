@@ -15,8 +15,10 @@ async def converter(photo: UploadFile = File(...), to: str = Form(...)):
         safe = BytesIO()
         if not photo.content_type:
             raise HTTPException(status_code=400)
-        type = photo.content_type.split("/")[1]
-        if not type.lower() in ("jpg", "jpeg", "png", "bmp", "webp", "ico", "tiff", "gif"):
+        print(photo.content_type)
+        file_type = photo.content_type.split("/")[1]
+        print(file_type)
+        if not file_type.lower() in ("jpg", "jpeg", "png", "bmp", "webp", "ico", "x-icon", "tiff", "gif"):
             raise HTTPException(status_code=415, detail="Unsupported file format")
         await photo.seek(0)
         contents = await photo.read()
@@ -31,4 +33,4 @@ async def converter(photo: UploadFile = File(...), to: str = Form(...)):
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-uvicorn.run(app, host="127.0.0.1",port=5500)
+# uvicorn.run(app, host="127.0.0.1",port=5500)

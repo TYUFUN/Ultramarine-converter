@@ -130,7 +130,7 @@ footer label{
     position: relative;
     top: 25px;
 }
-#er413, #globaler{
+#er413{
     user-select:all;
     font-weight: 600;
     display: none;
