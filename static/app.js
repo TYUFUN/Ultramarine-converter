@@ -9,6 +9,15 @@ file_c.addEventListener('change', () => {
 
 });
 const convert = document.getElementById("convert");
+const er413 = document.getElementById("er413");
+const globaler = document.getElementById("globaler");
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+async function bg(text) {
+            er413.innerHTML = text;
+            er413.style.display = 'block';
+            await sleep(5000);
+            er413.style.display = "none";
+};
 convert.addEventListener('click', async () => {
     to = document.getElementById("to").value;
     const user_file_send = file_c.files[0];
@@ -16,9 +25,25 @@ convert.addEventListener('click', async () => {
     formData.append("photo", user_file_send);
     formData.append("to", to);
     const response = await fetch("/convert",{ method: "post", body: formData});
-    // if (!response.ok) {
-    // alert(await response.text());
-    // return;}
+    if (!response.ok ) {
+        const data = await response.json();
+        if (response.status == 413){
+           bg(data.detail)}
+        else if (response.status == 415){
+            bg(data.detail)}
+        else if (response.status == 400){
+            bg("Error 400. probably wrong photo uploaded")}
+        else if (response.status == 422){
+            bg("File not uploaded")
+        }
+        else{
+            globaler.innerHTML = data.detail;
+            globaler.style.display = 'block';
+            await sleep(5000);
+            globaler.style.display = "none";
+        }
+        return;
+};
     const blob = await response.blob(); 
     our_f.src = URL.createObjectURL(blob);  
 });
