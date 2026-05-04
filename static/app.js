@@ -10,13 +10,12 @@ file_c.addEventListener('change', () => {
 });
 const convert = document.getElementById("convert");
 const er413 = document.getElementById("er413");
-const globaler = document.getElementById("globaler");
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 async function bg(text) {
-            er413.innerHTML = text;
-            er413.style.display = 'block';
-            await sleep(5000);
-            er413.style.display = "none";
+    er413.innerHTML = text;
+    er413.style.display = 'block';
+    await sleep(5000);
+    er413.style.display = "none";
 };
 convert.addEventListener('click', async () => {
     to = document.getElementById("to").value;
